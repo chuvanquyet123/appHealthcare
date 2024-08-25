@@ -1,19 +1,31 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function LogIn() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigation = useNavigation();
+  const handleLogin = () => {
+    if (username === 'a' && password === 'b') {
+      navigation.navigate('MainTabs');
+    } else {
+      alert('Sai tài khoản hoặc mật khẩu!');
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
-        <Image source={require('../imageFolder/download-logo-tuean-mien-phi.jpg')}></Image>
+        <Image source={require('../../assets/img/logo/download-logo-tuean-mien-phi.jpg')}></Image>
         <Text style= {styles.font_text}>Đăng Nhập</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder='Nhập số điện thoại hoặc email'/>
-        <TextInput style={styles.input} placeholder='Nhập mật khẩu'  
+        <TextInput value={username} onChangeText={setUsername} style={styles.input} placeholder='Nhập số điện thoại hoặc email'/>
+        <TextInput value={password} onChangeText={setPassword} style={styles.input} placeholder='Nhập mật khẩu'  
         secureTextEntry = {true}/>
-        <Button title='Đăng Nhập'></Button>
+        <Button onPress={handleLogin} title='Đăng Nhập'></Button>
       </View>
     </View>
   );
