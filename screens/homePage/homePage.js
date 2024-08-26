@@ -13,7 +13,7 @@ import {
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import itemHome from "./itemHome";
 
-export default function homePage() {
+export default function HomePage() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>

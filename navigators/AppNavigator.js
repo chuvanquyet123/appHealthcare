@@ -4,9 +4,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather, Entypo } from "@expo/vector-icons";
 import LogIn from "../screens/logInPage/loginPage";
-import homePage from "../screens/HomePage/homePage";
-import profilePage from "../screens/ProfilePage/profilePage";
-import chatPage from "../screens/chatPage/chatPage";
+import HomePage from "../screens/HomePage/homePage";
+import ProfilePage from "../screens/ProfilePage/profilePage";
+import ChatPage from "../screens/chatPage/chatPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -16,7 +16,7 @@ function MainTabs() {
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
         name="Trang Chủ"
-        component={homePage}
+        component={HomePage}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="home" size={28} color={color} />
@@ -25,7 +25,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Hội Thoại"
-        component={chatPage}
+        component={ChatPage}
         options={{
           tabBarIcon: ({ color }) => (
             <Entypo name="chat" size={28} color={color} />
@@ -34,7 +34,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Lịch Uống Thuốc"
-        component={homePage}
+        component={HomePage}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="calendar" size={28} color={color} />
@@ -43,7 +43,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Cá Nhân"
-        component={profilePage}
+        component={ProfilePage}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="user" size={28} color={color} />
