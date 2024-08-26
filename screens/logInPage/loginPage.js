@@ -10,12 +10,12 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
   const handleLogin = () => {
-    //navigation.navigate('MainTabs');
-    if (username === 'abc@gmail.com' && password === 'abcabcabc') {
+    navigation.navigate('MainTabs');
+    /*if (username === 'abc@gmail.com' && password === 'abcabcabc') {
       navigation.navigate('MainTabs');
     } else {
       alert('Sai tài khoản hoặc mật khẩu!');
-    }
+    }*/
   };
   return (
     <View style={styles.container}>
@@ -35,13 +35,13 @@ export default function LogIn() {
         </TouchableOpacity>
         </View>
         <TouchableOpacity style={{height: 50,alignItems: 'center'}}>
-          <Text>Bạn Quên Mật Khẩu..?</Text>
+          <Text style={{fontFamily:'cursive'}}>Bạn Quên Mật Khẩu..?</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.otherOption}>
-        <Text>Bạn chưa có tài khoản..?</Text>
+        <Text style={{fontFamily:'cursive'}}>Bạn chưa có tài khoản..?</Text>
         <TouchableOpacity>
-          <Text style={{color: '#327fb3'}}>Đăng Ký</Text>
+          <Text style={{color: '#327fb3', fontFamily:'cursive'}}>Đăng Ký</Text>
         </TouchableOpacity>
       </View>
     </View>
