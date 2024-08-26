@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ChatPage() {
+export default function CalendarPage() {
   return <></>;
 }
