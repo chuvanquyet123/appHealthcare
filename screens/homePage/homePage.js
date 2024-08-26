@@ -26,7 +26,7 @@ export default function HomePage() {
       id: 1,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
-        " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
+        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
       imageDT: "../../assets/img/content/image1.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
@@ -39,7 +39,7 @@ export default function HomePage() {
       id: 2,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
-        " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
+        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
       imageDT: "../../assets/img/content/image1.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
@@ -52,8 +52,8 @@ export default function HomePage() {
       id: 3,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
-        " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "../../assets/img/content/image1.jpg",
+        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
+      imageDT: `../../assets/img/content/image1.jpg`,
       categories: "Ung Bướu",
       date: "15/08/2024",
       view: 34767,
@@ -99,19 +99,47 @@ export default function HomePage() {
     </TouchableOpacity>
   );
 
-  // const rederData = ({ item }) => (
-  //   <TouchableOpacity style={styles.itemData}>
-  //     <View style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-  //       <View style={{ display: "flex", flexDirection: "column" }}>
-  //         <Text>{item.title}</Text>
-  //         <Text>{item.content}</Text>
-  //       </View>
-  //       <View style={{ width: "100%", height: "100%" }}>
-  //         <Image style={{ width: 30, height: 30 }} source={item.imageDT} />
-  //       </View>
-  //     </View>
-  //   </TouchableOpacity>
-  // );
+  const rederData = ({ item }) => (
+    <TouchableOpacity style={styles.itemView}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View style={{ height: 100, width: "70%" }}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontFamily:
+                "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+              lineHeight: 21,
+              fontWeight: "bold",
+              letterSpacing: 0.25,
+            }}
+          >
+            {item.title}
+          </Text>
+          <Text numberOfLines={4} ellipsizeMode="tail">
+            {item.content}
+          </Text>
+        </View>
+        <Image style={{ width: 100, height: 100 }} source={item.imageDT} />
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          marginTop: 10,
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Text>{item.categories}</Text>
+        <View style={styles.iconItem}>
+          <Text>{item.date}</Text>
+          {item.iconView}
+          <Text>{item.view}</Text>
+          {item.iconShared}
+          <Text>{item.shared}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
@@ -151,37 +179,28 @@ export default function HomePage() {
             height: 30,
           }}
         >
-          <Text style={{ fontSize: 16 }}>Bài Viết Nổi Bật</Text>
+          <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+            Bài Viết Nổi Bật
+          </Text>
           <TouchableOpacity>
-            <Text style={{ fontSize: 16, color: "#307ec2" }}>Xem Thêm</Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "#307ec2",
+                textDecorationLine: "underline",
+              }}
+            >
+              Xem Thêm
+            </Text>
           </TouchableOpacity>
         </View>
-        {/* <FlatList
+        <FlatList
           style={{ width: "100%", height: "100%" }}
           horizontal={false}
           data={data}
           renderItem={rederData}
           keyExtractor={(item) => item.id}
-        /> */}
-        <TouchableOpacity style={styles.itemView}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View style={{ height: 100, width: "70%" }}>
-              <Text style={{}}>VITAMIN B12 VÀ UNG THƯ</Text>
-              <Text numberOfLines={4} ellipsizeMode="tail">
-                Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với
-                lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin
-                liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn
-                băn khoăn về việc sử dụng vitamin này.
-              </Text>
-            </View>
-            <Image
-              style={{ width: 100, height: 100 }}
-              source={require("../../assets/img/content/image1.jpg")}
-            />
-          </View>
-        </TouchableOpacity>
+        />
       </View>
     </View>
   );
@@ -253,7 +272,20 @@ const styles = StyleSheet.create({
   itemView: {
     display: "flex",
     width: "95%",
-    height: 100,
-    backgroundColor: "#125B9A",
+    height: 150,
+    shadowRadius: 6,
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#000000",
+    shadowOpacity: 0.5,
+    borderRadius: 10,
+    padding: 15,
+    marginTop: 20,
+    left: 10,
+  },
+  iconItem: {
+    width: "70%",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 });
