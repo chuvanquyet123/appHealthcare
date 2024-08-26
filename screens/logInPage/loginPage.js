@@ -10,12 +10,12 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
   const handleLogin = () => {
-    navigation.navigate('MainTabs');
-    /*if (username === 'abc@gmail.com' && password === 'abcabcabc') {
+    //navigation.navigate('MainTabs');
+    if (username === 'abc@gmail.com' && password === 'abcabcabc') {
       navigation.navigate('MainTabs');
     } else {
       alert('Sai tài khoản hoặc mật khẩu!');
-    }*/
+    }
   };
   return (
     <View style={styles.container}>

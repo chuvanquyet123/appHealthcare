@@ -17,7 +17,6 @@ function MainTabs() {
       <Tab.Screen name="Trang Chủ" component={homePage} options={{tabBarIcon:({color}) =>(<Feather name="home" size={28} color={color}/>)}}/>
       <Tab.Screen name="Hội Thoại" component={chatPage} options={{tabBarIcon:({color}) =>(<Entypo name="chat" size={28} color={color}/>)}}/>
       <Tab.Screen name="Lịch Uống Thuốc" component={homePage} options={{tabBarIcon:({color}) =>(<Feather name="calendar" size={28} color={color}/>)}}/>
-      <Tab.Screen name="Hồ Sơ" component={homePage} options={{tabBarIcon:({color}) =>(<Feather name="folder" size={28} color={color}/>)}}/>
       <Tab.Screen name="Cá Nhân" component={profilePage} options={{tabBarIcon:({color}) =>(<Feather name="user" size={28} color={color}/>)}}/>
     </Tab.Navigator>
   );
