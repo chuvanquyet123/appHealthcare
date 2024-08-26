@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather, Entypo } from "@expo/vector-icons";
-import LogIn from "../screens/logInPage/loginPage";
+import LogIn from "../screens/LogInPage/loginPage";
 import HomePage from "../screens/HomePage/homePage";
 import ProfilePage from "../screens/ProfilePage/profilePage";
 import ChatPage from "../screens/chatPage/chatPage";
+import CalendarPage from "../screens/CalendarPage/calendarPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,7 +35,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Lịch Uống Thuốc"
-        component={HomePage}
+        component={CalendarPage}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="calendar" size={28} color={color} />

@@ -58,7 +58,5 @@ const styles = StyleSheet.create({
     borderColor: "rgba(158, 150, 200, .3)",
     borderWidth: 2,
     opacity: 2,
-    zIndex: -1,
-    position: "absolute",
   },
 });
