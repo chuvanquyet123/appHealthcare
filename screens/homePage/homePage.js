@@ -23,10 +23,11 @@ import {
 export default function HomePage() {
   const data = [
     {
+      id: 1,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
         " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "image1.jpg",
+      imageDT: "../../assets/img/content/image1.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
       view: 34767,
@@ -35,10 +36,11 @@ export default function HomePage() {
       iconShared: <FontAwesome name="share-alt" size={20} />,
     },
     {
+      id: 2,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
         " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "image1.jpg",
+      imageDT: "../../assets/img/content/image1.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
       view: 34767,
@@ -47,10 +49,11 @@ export default function HomePage() {
       iconShared: <FontAwesome name="share-alt" size={20} />,
     },
     {
+      id: 3,
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
         " Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "image1.jpg",
+      imageDT: "../../assets/img/content/image1.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
       view: 34767,
@@ -63,33 +66,53 @@ export default function HomePage() {
   const buttonData = [
     {
       id: 1,
-      buttonName: "Đặt Khám Tại Bệnh Viện",
-      icon: <FontAwesome name="calendar-plus-o" size={25} />,
+      buttonName: "Đặt Khám",
+      icon: <FontAwesome name="calendar-plus-o" size={30} color={"#125B9A"} />,
     },
     {
       id: 2,
-      buttonName: "Xem Kết Quả Khám",
-      icon: <MaterialIcons name="screen-search-desktop" size={25} />,
+      buttonName: "Kết Quả",
+      icon: (
+        <MaterialIcons
+          name="screen-search-desktop"
+          size={30}
+          color={"#125B9A"}
+        />
+      ),
     },
     {
       id: 3,
-      buttonName: "Đặt Khám Tại Bệnh Viện",
-      icon: <FontAwesome5 name="hospital-user" size={25} />,
+      buttonName: "Thứ Tự",
+      icon: <FontAwesome5 name="hospital-user" size={30} color={"#125B9A"} />,
     },
     {
       id: 4,
-      buttonName: "Quy Trình Khám",
-      icon: <Octicons name="workflow" size={25} />,
+      buttonName: "Quy Trình",
+      icon: <Octicons name="workflow" size={30} color={"#125B9A"} />,
     },
   ];
 
-  const renderOption = ({ item }) => {
+  const renderOption = ({ item }) => (
     <TouchableOpacity style={styles.itemOption}>
       {item.icon}
-      <Text>{item.buttonName}</Text>
-    </TouchableOpacity>;
-  };
-  console.log(buttonData);
+      <Text style={{ top: 10, fontSize: 11 }}>{item.buttonName}</Text>
+    </TouchableOpacity>
+  );
+
+  const rederData = ({ item }) => (
+    <TouchableOpacity style={styles.itemData}>
+      <View style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+        <View style={{ display: "flex", flexDirection: "column" }}>
+          <Text>{item.title}</Text>
+          <Text>{item.content}</Text>
+        </View>
+        <View style={{ width: "100%", height: "100%" }}>
+          <Image style={{ width: 30, height: 30 }} source={item.imageDT} />
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -110,8 +133,33 @@ export default function HomePage() {
       </View>
       <View style={styles.viewOption}>
         <FlatList
+          style={{ width: "100%", height: "100%" }}
+          horizontal={true}
           data={buttonData}
           renderItem={renderOption}
+          keyExtractor={(item) => item.id}
+          scrollEnabled="false"
+        />
+      </View>
+      <View style={styles.newsView}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            width: "90%",
+          }}
+        >
+          <Text style={{ fontSize: 16 }}>Bài Viết Nổi Bật</Text>
+          <TouchableOpacity>
+            <Text style={{ fontSize: 16, color: "#307ec2" }}>Xem Thêm</Text>
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          style={{ width: "100%", height: "100%" }}
+          horizontal={false}
+          data={data}
+          renderItem={rederData}
           keyExtractor={(item) => item.id}
         />
       </View>
@@ -123,7 +171,6 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     height: "100%",
-    flexDirection: "column",
     alignItems: "center",
   },
   headerContainer: {
@@ -158,15 +205,36 @@ const styles = StyleSheet.create({
   },
 
   viewOption: {
-    flexDirection: "row",
-    width: "100%",
-    height: "13%",
-    backgroundColor: "#009688",
+    width: "95%",
+    height: "15%",
+    alignContent: "center",
+    justifyContent: "center",
+    top: 10,
   },
   itemOption: {
-    width: 40,
-    height: 60,
+    width: 80,
+    height: 80,
     flexDirection: "column",
     alignItems: "center",
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    justifyContent: "center",
+    margin: 9,
+    shadowOpacity: 0.5,
+    shadowColor: "#0c66af",
+    shadowRadius: 4,
+  },
+  newsView: {
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+  },
+
+  itemData: {
+    display: "flex",
+    flexDirection: "row",
+    height: 80,
+    width: 80,
   },
 });
