@@ -1,103 +1,130 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Calendar } from 'react-native-calendars';
+import { useNavigation } from "@react-navigation/native";
 
 export default function ReminderComponent() {
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const monthNames = [
+        'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 
+        'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
+    ];
+    
+    const dayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+
+    const navigation = useNavigation();
+    const handleClick = () => {
+    navigation.navigate("Reminder");
+  };
+
     return (
-      <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
-        {/* Calendar Navigation */}
-        <View style={styles.calendarNav}>
-          <Ionicons name="chevron-back-outline" size={24} color="black" />
-          <Text style={styles.monthText}>Tháng 08/2024</Text>
-          <Ionicons name="chevron-forward-outline" size={24} color="black" />
-        </View>
-  
-        {/* Date Picker */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.datePicker}>
-          {['Th 2', 'Th 3', 'Th 4', 'Th 5', 'Th 6', 'Th 7', 'CN'].map((day, index) => (
-            <View key={index} style={index === 1 ? styles.dateItemSelected : styles.dateItem}>
-              <Text style={styles.dateText}>{day}</Text>
-              <Text style={styles.dateNumber}>{19 + index}</Text>
+            <Calendar
+                style={styles.calendar}
+                onDayPress={(day) => {
+                  setSelectedDate(day.dateString);
+                }}
+                markedDates={{
+                  [selectedDate]: {
+                    selected: true,
+                    selectedColor: '#007BFF',
+                    selectedTextColor: '#ffffff',
+                  },
+                }}
+                theme={{
+                  arrowColor: '#007BFF',
+                  todayTextColor: '#007BFF',
+                }}
+                renderHeader={(date) => {
+                    const month = date.toLocaleString('default', { month: 'long' });
+                    return (
+                        <Text style={styles.headerText}>
+                            {monthNames[date.getMonth()]} {date.getFullYear()}
+                        </Text>
+                    );
+                }}
+            />
+            <Text style={styles.currentDayText}>Hôm nay, {dayNames[new Date().getDay()]}, {new Date().getDate()}/{new Date().getMonth() + 1}</Text>
+
+            <View style={styles.reminderTimes}>
+                <Text style={styles.reminderText}>Lịch uống thuốc hôm nay:</Text>
+                {['7:00', '13:00', '20:00'].map((time, index) => (
+                    <Text key={index} style={styles.timeText}>{`> ${time}`}</Text>
+                ))}
             </View>
-          ))}
-        </ScrollView>
-  
-        {/* Current Day Reminder */}
-        <Text style={styles.currentDayText}>Hôm nay, Th 3, 20/08</Text>
-  
-        {/* Reminder Times */}
-        <View style={styles.reminderTimes}>
-          <Text style={styles.reminderText}>Lịch uống thuốc hôm nay:</Text>
-          {['7:00', '13:00', '20:00'].map((time, index) => (
-            <Text key={index} style={styles.timeText}>{`> ${time}`}</Text>
-          ))}
+            
+            <TouchableOpacity style={styles.manageButton} onPress={handleClick}>
+                <Ionicons name="alarm-outline" size={24} color="#FFF" />
+                <Text style={styles.manageButtonText}>Quản lý nhắc nhở</Text>
+            </TouchableOpacity>
         </View>
-  
-        {/* Manage Reminders Button */}
-        <TouchableOpacity style={styles.manageButton}>
-          <Ionicons name="alarm-outline" size={18} color="#FFF" />
-          <Text style={styles.manageButtonText}>Quản lý nhắc nhở</Text>
-        </TouchableOpacity>
-      </View>
-      </SafeAreaView>
-    )
-  }
-  
-  const styles = StyleSheet.create({
-    safeArea: {
-      flex: 1,
-      backgroundColor: '#f0f0f0',
-    },
+    );
+}
+
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      padding: 20,
-      backgroundColor: '#F5F5F5',
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#F5F5F5',
     },
-    header: {
-      height: 50,
-      justifyContent: 'center',
-      alignItems: 'center',
+    calendar: {
+        width: '100%',
+        height: 350,
+        marginBottom: 10,
     },
     headerText: {
-      fontSize: 18,
-      fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#007BFF',
+        textAlign: 'center',
+        paddingVertical: 10,
     },
-    datePicker: {
-      flexDirection: 'row',
-      marginVertical: 20,
+    dayContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    dateItem: {
-      alignItems: 'center',
-      marginHorizontal: 10,
+    dayText: {
+        fontSize: 16,
     },
-    dateText: {
-      fontSize: 16,
-      color: '#000',
+    dayWeekText: {
+        fontSize: 14,
+        color: '#707070',
     },
-    dateNumber: {
-      fontSize: 16,
-      color: '#000',
+    currentDayText: {
+        textAlign:'center',
+        fontSize: 16,
+        fontWeight: '600',
+        marginVertical: 10,
     },
     reminderTimes: {
-      paddingVertical: 20,
+        paddingVertical: 20,
     },
     reminderText: {
-      fontSize: 16,
-      fontWeight: 'bold',
+        fontSize: 16,
+        fontWeight: '600',
     },
     timeText: {
-      fontSize: 16,
-      marginVertical: 5,
+        fontSize: 16,
+        marginVertical: 5,
     },
     manageButton: {
-      backgroundColor: '#007BFF',
-      paddingVertical: 10,
-      borderRadius: 5,
-      alignItems: 'center',
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        backgroundColor: '#007BFF',
+        paddingVertical: 5, 
+        paddingHorizontal: 10,
+        borderRadius: 20,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
     },
     manageButtonText: {
-      color: '#FFF',
-      fontSize: 16,
+        color: '#FFF',
+        fontSize: 24, 
+        marginLeft: 5,
+        fontWeight:'600'
     },
-  })
+});

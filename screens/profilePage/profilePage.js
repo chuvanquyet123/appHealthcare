@@ -38,16 +38,15 @@ export default function ProfilePage() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>Hồ sơ cá nhân</Text>
+      </View>
       <FlatList
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.key}
-        ListHeaderComponent={(
-          <>
-            <Text style={styles.header}>Hồ sơ cá nhân</Text>
-            {renderHeader()}
-          </>
-        )}
+        ListHeaderComponent={renderHeader}
+        contentContainerStyle={styles.flatListContent}
       />
     </SafeAreaView>
   );
@@ -58,16 +57,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f0f0f0',
   },
-  container: {
-    flex: 1,
+  headerContainer: {
     paddingHorizontal: 16,
+    backgroundColor: '#f0f0f0',
+    elevation: 2,
   },
   header: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 16,
     marginTop: 20,
-    paddingHorizontal: 16,
     textAlign: 'center',
   },
   profile: {
@@ -104,12 +103,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     borderRadius: 8,
   },
-  icon: {
-    fontSize: 24,
-    marginRight: 16,
-  },
   text: {
     fontSize: 16,
     marginLeft: 8,
+  },
+  flatListContent: {
+    paddingTop: 16,
   },
 });
