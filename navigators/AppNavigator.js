@@ -8,7 +8,7 @@ import HomePage from "../screens/HomePage/homePage";
 import ProfilePage from "../screens/ProfilePage/profilePage";
 import ChatPage from "../screens/chatPage/chatPage";
 import CalendarPage from "../screens/CalendarPage/calendarPage";
-import ReminderPage from "../screens/ReminderPage/reminderPage";
+//import ReminderPage from "../screens/ReminderPage/reminderPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -70,11 +70,11 @@ export default function AppNavigator() {
           name="MainTabs"
           component={MainTabs}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           options={{ headerShown: false }}
           name="Reminder"
           component={ReminderPage}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

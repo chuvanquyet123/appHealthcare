@@ -99,19 +99,19 @@ export default function HomePage() {
     </TouchableOpacity>
   );
 
-  const rederData = ({ item }) => (
-    <TouchableOpacity style={styles.itemData}>
-      <View style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-        <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text>{item.title}</Text>
-          <Text>{item.content}</Text>
-        </View>
-        <View style={{ width: "100%", height: "100%" }}>
-          <Image style={{ width: 30, height: 30 }} source={item.imageDT} />
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
+  // const rederData = ({ item }) => (
+  //   <TouchableOpacity style={styles.itemData}>
+  //     <View style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+  //       <View style={{ display: "flex", flexDirection: "column" }}>
+  //         <Text>{item.title}</Text>
+  //         <Text>{item.content}</Text>
+  //       </View>
+  //       <View style={{ width: "100%", height: "100%" }}>
+  //         <Image style={{ width: 30, height: 30 }} source={item.imageDT} />
+  //       </View>
+  //     </View>
+  //   </TouchableOpacity>
+  // );
 
   return (
     <View style={styles.container}>
@@ -148,6 +148,7 @@ export default function HomePage() {
             flexDirection: "row",
             justifyContent: "space-between",
             width: "90%",
+            height: 30,
           }}
         >
           <Text style={{ fontSize: 16 }}>Bài Viết Nổi Bật</Text>
@@ -155,13 +156,32 @@ export default function HomePage() {
             <Text style={{ fontSize: 16, color: "#307ec2" }}>Xem Thêm</Text>
           </TouchableOpacity>
         </View>
-        <FlatList
+        {/* <FlatList
           style={{ width: "100%", height: "100%" }}
           horizontal={false}
           data={data}
           renderItem={rederData}
           keyExtractor={(item) => item.id}
-        />
+        /> */}
+        <TouchableOpacity style={styles.itemView}>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <View style={{ height: 100, width: "70%" }}>
+              <Text style={{}}>VITAMIN B12 VÀ UNG THƯ</Text>
+              <Text numberOfLines={4} ellipsizeMode="tail">
+                Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với
+                lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin
+                liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn
+                băn khoăn về việc sử dụng vitamin này.
+              </Text>
+            </View>
+            <Image
+              style={{ width: 100, height: 100 }}
+              source={require("../../assets/img/content/image1.jpg")}
+            />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -230,11 +250,10 @@ const styles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
   },
-
-  itemData: {
+  itemView: {
     display: "flex",
-    flexDirection: "row",
-    height: 80,
-    width: 80,
+    width: "95%",
+    height: 100,
+    backgroundColor: "#125B9A",
   },
 });
