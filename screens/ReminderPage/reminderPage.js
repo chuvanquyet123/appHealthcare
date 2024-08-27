@@ -5,7 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import * as Notifications from 'expo-notifications';
 
-
 const ReminderPage = () => {
 
   const [notificationId, setNotificationId] = useState(null);
