@@ -4,24 +4,11 @@ import { Picker } from '@react-native-picker/picker';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import * as Notifications from 'expo-notifications';
-import * as Audio from 'expo-av';
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
-Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-        shouldPlaySound: true,
-        shouldShowAlert: true,
-        shouldSetBadge: false,
-    }),
-});
 
 const ReminderPage = () => {
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [sound, setSound] = useState(null);
-    const notificationListener = useRef();
-    const [notification, setNotification] = useState(false);
-    const [notificationId, setNotificationId] = useState(null);
-    const alarmSound = require('../../assets/sounds/default.mp3');
+
+  const [notificationId, setNotificationId] = useState(null);
     const [description, setDescription] = useState('');
     const [hour, setHour] = useState('10');
     const [minute, setMinute] = useState('38');
@@ -30,34 +17,6 @@ const ReminderPage = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const { year, month, day } = route.params || {};
-
-    const playSound = async () => {
-        const { sound } = await Audio.Sound.createAsync(alarmSound);
-        setSound(sound);
-        await sound.playAsync();
-    };
-
-    const stopSound = async () => {
-        if (sound) {
-            await sound.stopAsync();
-        }
-    };
-
-    const handleAcknowledge = () => {
-        stopSound();
-        setIsModalVisible(false);
-    };
-
-    useEffect(() => {
-        notificationListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-            setIsModalVisible(true);
-            playSound();
-        });
-
-        return () => {
-            Notifications.removeNotificationSubscription(notificationListener.current);
-        };
-    }, []);
 
     useEffect(() => {
         if (route.params?.selectedDays) {
@@ -87,57 +46,27 @@ const ReminderPage = () => {
         navigation.navigate("Repeat");
     };
 
-    const storeData = async (id) => {
-        try {
-            if (id) {
-                await AsyncStorage.setItem("currentAlarmId", JSON.stringify(id));
-            } else {
-                await AsyncStorage.removeItem("currentAlarmId");
-            }
-        } catch (e) {
-            console.error('Lỗi khi lưu dữ liệu vào AsyncStorage:', e);
-        }
-    };
-
-    const getData = async () => {
-        try {
-            const jsonValue = await AsyncStorage.getItem("currentAlarmId");
-            const id = jsonValue ? JSON.parse(jsonValue) : null;
-            setNotificationId(id);
-        } catch (e) {
-            console.error('Lỗi khi lấy dữ liệu từ AsyncStorage:', e);
-        }
-    };
-
     const handleContinuePress = async () => {
-        try {
-            const { status } = await Notifications.getPermissionsAsync();
-            if (status !== 'granted') {
-                await Notifications.requestPermissionsAsync();
-            }
-
+      
+        const { status } = await Notifications.requestPermissionsAsync();
+        if (status !== 'granted') {
+          Alert.alert('Permission required', 'You need to grant notification permissions');
+          return;
+        }
             const alarmTime = new Date(year, month - 1, day, hour, minute);
-            const response = await Notifications.scheduleNotificationAsync({
+            const id = await Notifications.scheduleNotificationAsync({
                 content: {
-                    title: description || "Nhắc nhở",
-                    body: `Đến giờ uống thuốc ${hour}:${minute}`,
-                    sound: alarmSound,
-                    vibrationPattern: [0, 500, 1000],
-                    priority: 'high'
+                  title: description || 'Alarm',
+                  body: `It's ${hour}:${minute}!`,
+                  sound: 'default',
                 },
                 trigger: {
-                    date: alarmTime,
-                    repeats: repeat === 'Hàng ngày',
+                  date: alarmTime,
                 },
-            });
+              });
 
             setNotificationId(response.identifier);
-            await storeData(response.identifier);
-            navigation.goBack();
-        } catch (error) {
-            console.error('Lỗi khi lên lịch thông báo:', error);
-            alert('Có lỗi xảy ra khi lên lịch thông báo.');
-        }
+            Alert.alert('Thành công', `Lời nhắc vào ${hour}:${minute}`);
     };
 
     return (
@@ -201,22 +130,6 @@ const ReminderPage = () => {
                         <Text style={styles.buttonText}>Tiếp tục</Text>
                     </TouchableOpacity>
                 </View>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={isModalVisible}
-                    onRequestClose={handleAcknowledge}
-                >
-                    <View style={styles.modalContainer}>
-                        <View style={styles.modalContent}>
-                            <Text style={styles.modalText}>Sắp đến giờ uống thuốc</Text>
-                            <Image source={require('../../assets/img/icon.png')} style={styles.image} />
-                            <TouchableOpacity onPress={handleAcknowledge} style={styles.modalButton}>
-                                <Text style={styles.modalButtonText}>Tôi hiểu rồi</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </Modal>
             </View>
         </SafeAreaView>
     );
@@ -226,40 +139,6 @@ const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: '#125B9A',
-    },
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    },
-    modalContent: {
-        width: 300,
-        padding: 20,
-        backgroundColor: 'white',
-        borderRadius: 10,
-        alignItems: 'center',
-    },
-    modalText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-    },
-    image: {
-        width: 100,
-        height: 100,
-        marginBottom: 20,
-    },
-    modalButton: {
-        backgroundColor: '#007BFF',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-    },
-    modalButtonText: {
-        color: 'white',
-        fontSize: 18,
     },
     container: {
         flex: 1,

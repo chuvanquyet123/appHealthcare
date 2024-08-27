@@ -11,6 +11,7 @@ import ChatPage from "../screens/chatPage/chatPage";
 import CalendarPage from "../screens/CalendarPage/calendarPage";
 import ReminderPage from "../screens/ReminderPage/reminderPage";
 import Repeat from "../components/repeatComponent";
+import Alarm from "../components/alarmComponent";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -22,6 +23,7 @@ function CalendarStackScreen() {
       <CalendarStack.Screen name="CalendarPage" component={CalendarPage} />
       <CalendarStack.Screen name="Reminder" component={ReminderPage} />
       <CalendarStack.Screen name="Repeat" component={Repeat} />
+      <CalendarStack.Screen name="Alarm" component={Alarm} />
     </CalendarStack.Navigator>
   );
 }

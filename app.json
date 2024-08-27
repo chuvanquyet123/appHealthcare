@@ -1,6 +1,5 @@
 {
   "expo": {
-
     "assetBundlePatterns": [
       "assets/**/*"
     ],
