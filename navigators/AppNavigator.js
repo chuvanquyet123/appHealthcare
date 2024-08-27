@@ -26,7 +26,7 @@ function MainTabs() {
         }}
       />
       <Tab.Screen
-        name="Hội Thoại"
+        name="Trò Chuyện"
         component={ChatPage}
         options={{
           tabBarIcon: ({ color }) => (
