@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     justifyContent: "space-evenly",
     width: "100%",
-    height: "14%",
+    height: "13.2%",
     backgroundColor: "#1b5f9b",
     paddingBottom: 10,
   },

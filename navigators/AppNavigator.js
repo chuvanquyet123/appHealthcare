@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import * as Notifications from 'expo-notifications';
+import * as Notifications from "expo-notifications";
 import { Feather, Entypo } from "@expo/vector-icons";
 import LogIn from "../screens/LogInPage/loginPage";
 import HomePage from "../screens/HomePage/homePage";
@@ -70,32 +70,33 @@ function MainTabs() {
 }
 
 export default function AppNavigator() {
-
   useEffect(() => {
     const requestPermissions = async () => {
       const { status } = await Notifications.getPermissionsAsync();
-      if (status !== 'granted') {
-          const { status: newStatus } = await Notifications.requestPermissionsAsync();
-          if (newStatus !== 'granted') {
-              alert('Bạn cần cấp quyền thông báo để sử dụng tính năng này.');
-              return;
-          }
+      if (status !== "granted") {
+        const { status: newStatus } =
+          await Notifications.requestPermissionsAsync();
+        if (newStatus !== "granted") {
+          alert("Bạn cần cấp quyền thông báo để sử dụng tính năng này.");
+          return;
+        }
       }
     };
 
     requestPermissions();
 
-    const notificationListener = Notifications.addNotificationReceivedListener(notification => {
-    });
+    const notificationListener = Notifications.addNotificationReceivedListener(
+      (notification) => {}
+    );
 
-    const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
-    });
+    const responseListener =
+      Notifications.addNotificationResponseReceivedListener((response) => {});
 
     return () => {
-        Notifications.removeNotificationSubscription(notificationListener);
-        Notifications.removeNotificationSubscription(responseListener);
+      Notifications.removeNotificationSubscription(notificationListener);
+      Notifications.removeNotificationSubscription(responseListener);
     };
-}, []);
+  }, []);
 
   return (
     <NavigationContainer>
