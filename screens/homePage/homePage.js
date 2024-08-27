@@ -27,7 +27,8 @@ export default function HomePage() {
       title: "VITAMIN B12 VÀ UNG THƯ",
       content:
         "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "../../assets/img/content/image1.jpg",
+      imageDT:
+        "https://benhvienk.vn/data/media/1601/images/301613023_1745507439143960_3302390759148731262_n.jpg",
       categories: "Ung Bướu",
       date: "15/08/2024",
       view: 34767,
@@ -37,27 +38,28 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "VITAMIN B12 VÀ UNG THƯ",
+      title: "ĂN MẶN LÀ THÓI QUEN GÂY HẠI CHO SỨC KHOẺ",
       content:
-        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: "../../assets/img/content/image1.jpg",
-      categories: "Ung Bướu",
-      date: "15/08/2024",
-      view: 34767,
-      shared: 100,
+        "Hiện nay, người Việt Nam đang ăn khoảng 12-15g muối/ngày, cao gấp 2-3 lần khuyến cáo của Tổ chức Y tế thế giới. Theo khuyến cáo của WHO, người trưởng thành khỏe mạnh nên ăn dưới 5g muối/ngày. Đối với trẻ nhỏ dưới 1 tuổi, chỉ nên ăn dưới 1g muối/ngày, trẻ từ 1-3 tuổi nên ăn 3g/ngày, trẻ > 7 tuổi thì ăn lượng muối như người trưởng thành. ",
+      imageDT: "https://benhvienk.vn/data/media/1601/images/mu%E1%BB%91i.jpg",
+      categories: "Sống Khoẻ",
+      date: "27/06/2024",
+      view: 45347,
+      shared: 189,
       iconView: <Ionicons name="eye" size={20} />,
       iconShared: <FontAwesome name="share-alt" size={20} />,
     },
     {
       id: 3,
-      title: "VITAMIN B12 VÀ UNG THƯ",
+      title: "LÁ ĐU ĐỦ VÀ UNG THƯ",
       content:
-        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
-      imageDT: `../../assets/img/content/image1.jpg`,
+        "Cây đu đủ rất phổ biến ở các nước vùng nhiệt đới. Toàn thân cây đu đủ đều có thể sử dụng được để làm thực phẩm hoặc thuốc, mỹ phẩm. Lá của đu đủ chứa nhiều vitamin tan trong chất béo (A, D, E và K); vitamin B và C; và các khoáng chất như sắt, natri và magiê.",
+      imageDT:
+        "https://benhvienk.vn/data/media/1601/images/la-du-du-ok_yofu.jpg",
       categories: "Ung Bướu",
-      date: "15/08/2024",
-      view: 34767,
-      shared: 100,
+      date: "20/08/2024",
+      view: 56127,
+      shared: 130,
       iconView: <Ionicons name="eye" size={20} />,
       iconShared: <FontAwesome name="share-alt" size={20} />,
     },
@@ -104,6 +106,7 @@ export default function HomePage() {
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <View style={{ height: 100, width: "70%" }}>
           <Text
+            numberOfLines={1}
             style={{
               fontSize: 18,
               fontFamily:
@@ -119,7 +122,7 @@ export default function HomePage() {
             {item.content}
           </Text>
         </View>
-        <Image style={{ width: 100, height: 100 }} source={item.imageDT} />
+        <Image style={{ width: 100, height: 100 }} src={item.imageDT} />
       </View>
       <View
         style={{
@@ -129,7 +132,7 @@ export default function HomePage() {
           alignItems: "center",
         }}
       >
-        <Text>{item.categories}</Text>
+        <Text style={{ fontWeight: "bold" }}>{item.categories}</Text>
         <View style={styles.iconItem}>
           <Text>{item.date}</Text>
           {item.iconView}
@@ -219,7 +222,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     height: "14%",
-    backgroundColor: "#125B9A",
+    backgroundColor: "#1b5f9b",
     paddingBottom: 10,
   },
   inputContainer: {
@@ -273,10 +276,10 @@ const styles = StyleSheet.create({
     display: "flex",
     width: "95%",
     height: 150,
-    shadowRadius: 6,
+    shadowRadius: 10,
     backgroundColor: "#FFFFFF",
     shadowColor: "#000000",
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.2,
     borderRadius: 10,
     padding: 15,
     marginTop: 20,
@@ -285,7 +288,7 @@ const styles = StyleSheet.create({
   iconItem: {
     width: "70%",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     alignItems: "center",
   },
 });
