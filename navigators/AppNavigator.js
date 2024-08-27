@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import * as Notifications from 'expo-notifications';
 import { Feather, Entypo } from "@expo/vector-icons";
 import LogIn from "../screens/LogInPage/loginPage";
 import HomePage from "../screens/HomePage/homePage";
 import ProfilePage from "../screens/ProfilePage/profilePage";
 import ChatPage from "../screens/chatPage/chatPage";
 import CalendarPage from "../screens/CalendarPage/calendarPage";
-//import ReminderPage from "../screens/ReminderPage/reminderPage";
+import ReminderPage from "../screens/ReminderPage/reminderPage";
+import Repeat from "../components/repeatComponent";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const CalendarStack = createNativeStackNavigator();
+
+function CalendarStackScreen() {
+  return (
+    <CalendarStack.Navigator screenOptions={{ headerShown: false }}>
+      <CalendarStack.Screen name="CalendarPage" component={CalendarPage} />
+      <CalendarStack.Screen name="Reminder" component={ReminderPage} />
+      <CalendarStack.Screen name="Repeat" component={Repeat} />
+    </CalendarStack.Navigator>
+  );
+}
 
 function MainTabs() {
   return (
@@ -36,7 +49,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Lịch Uống Thuốc"
-        component={CalendarPage}
+        component={CalendarStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="calendar" size={28} color={color} />
@@ -57,6 +70,33 @@ function MainTabs() {
 }
 
 export default function AppNavigator() {
+
+  useEffect(() => {
+    const requestPermissions = async () => {
+      const { status } = await Notifications.getPermissionsAsync();
+      if (status !== 'granted') {
+          const { status: newStatus } = await Notifications.requestPermissionsAsync();
+          if (newStatus !== 'granted') {
+              alert('Bạn cần cấp quyền thông báo để sử dụng tính năng này.');
+              return;
+          }
+      }
+    };
+
+    requestPermissions();
+
+    const notificationListener = Notifications.addNotificationReceivedListener(notification => {
+    });
+
+    const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
+    });
+
+    return () => {
+        Notifications.removeNotificationSubscription(notificationListener);
+        Notifications.removeNotificationSubscription(responseListener);
+    };
+}, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -70,11 +110,6 @@ export default function AppNavigator() {
           name="MainTabs"
           component={MainTabs}
         />
-        {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name="Reminder"
-          component={ReminderPage}
-        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

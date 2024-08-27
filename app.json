@@ -1,5 +1,25 @@
 {
   "expo": {
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/img/icon.png",
+          "color": "#ffffff",
+          "defaultChannel": "default",
+          "sounds": [
+            "./assets/sounds/default.mp3"
+          ]
+        },
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(healthCare) to access your microphone."
+        }
+      ]
+    ],
+    "assetBundlePatterns": [
+      "assets/**/*"
+    ],
     "name": "healthCare",
     "slug": "healthCare",
     "version": "1.0.0",
@@ -12,7 +32,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
     },
     "android": {
       "adaptiveIcon": {

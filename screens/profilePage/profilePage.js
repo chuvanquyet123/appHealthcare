@@ -41,6 +41,7 @@ export default function ProfilePage() {
       <View style={styles.headerContainer}>
         <Text style={styles.header}>Hồ sơ cá nhân</Text>
       </View>
+      <View style={styles.container}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -48,6 +49,7 @@ export default function ProfilePage() {
         ListHeaderComponent={renderHeader}
         contentContainerStyle={styles.flatListContent}
       />
+      </View>
     </SafeAreaView>
   );
 }
@@ -55,12 +57,16 @@ export default function ProfilePage() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#125B9A',
   },
   headerContainer: {
     paddingHorizontal: 16,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#125B9A',
     elevation: 2,
+  },
+  container:{
+    flex: 1,
+    backgroundColor: '#F5F5F5',
   },
   header: {
     fontSize: 18,
@@ -68,6 +74,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 20,
     textAlign: 'center',
+    color:'#fff'
   },
   profile: {
     flexDirection: 'row',

@@ -47,12 +47,13 @@ export default function CalendarPage() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#125B9A",
   },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 10,
+    backgroundColor: "#f0f0f0",
   },
   tab: {
     flex: 1,
