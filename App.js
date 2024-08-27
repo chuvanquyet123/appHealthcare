@@ -1,17 +1,20 @@
-import React from "react";
+import React,{useEffect} from "react";
 import AppNavigator from "./navigators/AppNavigator";
 import * as Notifications from 'expo-notifications';
+import { useNavigation, useRoute } from "@react-navigation/native";
+
+const navigation = useNavigation();
 
 // Lắng nghe khi notification được nhận
 useEffect(() => {
   // Trường hợp foreground
   const foregroundSubscription = Notifications.addNotificationReceivedListener(() => {
-    navigation.navigate('GiaoDien');
+    navigation.navigate('Alarm');
   });
 
   // Trường hợp background hoặc khi ứng dụng bị đóng
   const backgroundSubscription = Notifications.addNotificationResponseReceivedListener(() => {
-    navigation.navigate('GiaoDien');
+    navigation.navigate('Alarm');
   });
 
   return () => {
