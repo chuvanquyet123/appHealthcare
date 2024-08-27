@@ -19,9 +19,9 @@ export default function ChatPage() {
     {
       id: 1,
       imageUser:
-        "https://plus.unsplash.com/premium_photo-1661764878654-3d0fc2eefcca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZG9jdG9yfGVufDB8fDB8fHww",
+        "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/401592491_3659917990903986_4375874815423449447_n.jpg?stp=cp6_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fJMq2JdDHCUQ7kNvgHiun7s&_nc_ht=scontent.fhan5-2.fna&oh=00_AYA0tu9ROYTrsmCfuVBIhiWgQBedguMGEZAshhYXDFeFsA&oe=66D373AF",
       nameUser: "Bác Sĩ Hải",
-      messageContent: "Em dạo này ổn không, còn đi làm ở công ty cũ",
+      messageContent: "Sức khoẻ của bạn thế nào?",
       time: "12:01",
     },
     {
@@ -29,7 +29,7 @@ export default function ChatPage() {
       imageUser:
         "https://media.istockphoto.com/id/1944704622/photo/successful-doctor-woman-standing-outside-at-front-of-medical-clinic-looking-at-camera.webp?b=1&s=612x612&w=0&k=20&c=GCN2H0bGVRd1gQgtLZtxTKGR2Hw9UyrMPj42rDRHE3Q=",
       nameUser: "Bác Sĩ Nhi",
-      messageContent: "Còn đi sớm về khuya mà đồng lương vẫn không thể đủ",
+      messageContent: "Tôi có thể hỗ trợ được gì cho bạn?",
       time: "14:30",
     },
     {
@@ -37,7 +37,7 @@ export default function ChatPage() {
       imageUser:
         "https://media.istockphoto.com/id/1494324933/photo/portrait-of-asian-chinese-mixed-race-senior-mature-man-doctor-in-collared-business-shirt.webp?b=1&s=612x612&w=0&k=20&c=CY6F5ldzz3xcC5KEbgx_r1ltOUMLaqzCsNnwtesf_28=",
       nameUser: "Bác Sĩ Hoàng",
-      messageContent: "Em ngủ đi anh thấy yên lòng",
+      messageContent: "Hãy nhớ uống thuốc đầy đủ và bổ sung dinh dưỡng",
       time: "24:30",
     },
     {
@@ -45,7 +45,7 @@ export default function ChatPage() {
       imageUser:
         "https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=600",
       nameUser: "Bác Sĩ Trinh",
-      messageContent: "Nay em ăn mấy bát",
+      messageContent: "Chiều nay bạn có lịch hẹn khám, vui lòng tới đúng giờ",
       time: "08:30",
     },
     {
@@ -53,7 +53,8 @@ export default function ChatPage() {
       imageUser:
         "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=600",
       nameUser: "Bác Sĩ Linh",
-      messageContent: "Em ăn cơm chưa",
+      messageContent:
+        "Nếu có tác dụng phụ của thuốc, vui lòng cho tôi biết và tái khám vào ngày hôm sau",
       time: "11:30",
     },
   ];
@@ -86,23 +87,20 @@ export default function ChatPage() {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Feather name="menu" size={30} color={"#11548f"} />
+          <Feather name="menu" size={30} color={"#ffffff"} />
         </TouchableOpacity>
-        <Text style={{ fontWeight: "bold", fontSize: 18 }}>Trò Chuyện</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 18, color: "white" }}>
+          Trò Chuyện
+        </Text>
         <TouchableOpacity>
-          <Feather name="edit" size={30} color={"#11548f"} />
+          <Feather name="edit" size={30} color={"#ffffff"} />
         </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
-        <Feather
-          name="search"
-          size={24}
-          color="#a5a4a4"
-          style={styles.micIcon}
-        />
+        <Feather name="search" size={24} color="#a5a4a4" />
         <TextInput
           style={styles.input}
-          placeholder="Bạn đang tìm ai?"
+          placeholder="Tìm Kiếm"
           placeholderTextColor={"#a5a4a4"}
         />
       </View>
@@ -127,13 +125,13 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    height: "13%",
+    height: "13.2%",
     width: "100%",
-    backgroundColor: "#6ea8f3",
+    backgroundColor: "#1b5f9b",
     alignItems: "flex-end",
     justifyContent: "space-between",
     paddingBottom: 13,
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
   },
   inputContainer: {
     flexDirection: "row",
@@ -153,9 +151,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
     fontSize: 16,
   },
-  micIcon: {
-    marginRight: 10,
-  },
   chatView: {
     display: "flex",
     flexDirection: "row",
@@ -165,5 +160,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
-  itemChat: {},
 });
