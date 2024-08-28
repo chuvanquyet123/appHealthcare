@@ -12,6 +12,8 @@ import CalendarPage from "../screens/CalendarPage/calendarPage";
 import ReminderPage from "../screens/ReminderPage/reminderPage";
 import Repeat from "../components/repeatComponent";
 import Alarm from "../components/alarmComponent";
+import Coin from "../screens/CoinPage/coinPage";
+import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,6 +26,15 @@ function CalendarStackScreen() {
       <CalendarStack.Screen name="Reminder" component={ReminderPage} />
       <CalendarStack.Screen name="Repeat" component={Repeat} />
       <CalendarStack.Screen name="Alarm" component={Alarm} />
+    </CalendarStack.Navigator>
+  );
+}
+function ProfileScreen() {
+  return (
+    <CalendarStack.Navigator screenOptions={{ headerShown: false }}>
+      <CalendarStack.Screen name="Profile" component={ProfilePage} />
+      <CalendarStack.Screen name="Coin" component={Coin} />
+      <CalendarStack.Screen name="ReferFriends" component={ReferFriends} />
     </CalendarStack.Navigator>
   );
 }
@@ -60,7 +71,7 @@ function MainTabs() {
       />
       <Tab.Screen
         name="Cá Nhân"
-        component={ProfilePage}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="user" size={28} color={color} />
