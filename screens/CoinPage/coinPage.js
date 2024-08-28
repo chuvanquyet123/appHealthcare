@@ -78,7 +78,7 @@ export default function Coin() {
                     652
                   </Text>
                 ) : (
-                  <Text>*******</Text>
+                  <Text>****</Text>
                 )}
                 <TouchableOpacity onPress={handleShowCoin}>
                   {showCoin ? (
