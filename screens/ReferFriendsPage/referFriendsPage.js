@@ -129,7 +129,7 @@ export default function ReferFriends() {
                 borderRadius: 5,
               }}
             >
-              <Text>Chia sẻ Link</Text>
+              <Text style={{ color: "white" }}>Chia sẻ Link</Text>
             </TouchableOpacity>
           </View>
           <View
@@ -175,7 +175,7 @@ export default function ReferFriends() {
                 borderRadius: 5,
               }}
             >
-              <Text>Chia sẻ Link</Text>
+              <Text style={{ color: "white" }}>Chia sẻ Link</Text>
             </TouchableOpacity>
           </View>
           <View
