@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Audio } from 'expo-av';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Alarm() {
   const [sound, setSound] = useState(null);
-
-  async function playSound() {
-    const { sound } = await Audio.Sound.createAsync(
-      require('../assets/sounds/default.mp3'), 
-      {
-        isLooping: true,
-      }
-    );
-    setSound(sound);
-    await sound.playAsync();
-  }
+  const navigation = useNavigation();
 
   useEffect(() => {
+    let soundObject;
+
+    const playSound = async () => {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../assets/sounds/default.mp3'),
+        { isLooping: true }
+      );
+      soundObject = sound;
+      setSound(sound);
+      await sound.playAsync();
+    };
+
     playSound();
+
+    // Clean up the sound when the component unmounts
     return () => {
-      if (sound) {
-        sound.unloadAsync();
+      if (soundObject) {
+        soundObject.stopAsync();
+        soundObject.unloadAsync();
       }
     };
   }, []);
@@ -28,7 +34,10 @@ export default function Alarm() {
   const handleAcknowledge = async () => {
     if (sound) {
       await sound.stopAsync();
+      await sound.unloadAsync();
+      setSound(null);
     }
+    navigation.navigate('CalendarPage');
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Switch, TouchableOpacity, StyleSheet, SafeAreaView, TextInput, Modal, Image } from 'react-native';
+import { View, Text, Switch, TouchableOpacity, StyleSheet, SafeAreaView, TextInput, Modal, Image,Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -55,8 +55,8 @@ const ReminderPage = () => {
             const alarmTime = new Date(year, month - 1, day, hour, minute);
             const id = await Notifications.scheduleNotificationAsync({
                 content: {
-                  title: description || 'Alarm',
-                  body: `It's ${hour}:${minute}!`,
+                  title: description || 'Lời nhắc',
+                  body: `Đã đến giờ uống thuốc ${hour}:${minute}!`,
                   sound: 'default',
                 },
                 trigger: {
@@ -64,8 +64,17 @@ const ReminderPage = () => {
                 },
               });
 
-            setNotificationId(response.identifier);
-            Alert.alert('Thành công', `Lời nhắc vào ${hour}:${minute}`);
+            setNotificationId(id);
+            Alert.alert(
+                'Thành công', 
+                `Lời nhắc vào ${hour}:${minute}`, 
+                [
+                  { 
+                    text: 'OK', 
+                    onPress: () => navigation.navigate('CalendarPage', { selectedHour: hour, selectedMinute: minute }) 
+                  }
+                ]
+              );
     };
 
     return (

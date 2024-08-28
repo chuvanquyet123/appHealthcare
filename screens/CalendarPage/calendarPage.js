@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   View,
   Text,
@@ -8,6 +8,11 @@ import {
 } from "react-native";
 import ReminderComponent from "../../components/reminderComponent";
 import HistoryComponent from "../../components/historyComponent";
+import { useNavigation } from "@react-navigation/native";
+import * as Notifications from "expo-notifications";
+
+
+
 
 export default function CalendarPage() {
   const [selectedTab, setSelectedTab] = useState("reminder");
@@ -19,6 +24,24 @@ export default function CalendarPage() {
       return <HistoryComponent />;
     }
   };
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    // Trường hợp foreground
+    const foregroundSubscription = Notifications.addNotificationReceivedListener(() => {
+      navigation.navigate('Alarm');
+    });
+
+    // Trường hợp background hoặc khi ứng dụng bị đóng
+    const backgroundSubscription = Notifications.addNotificationResponseReceivedListener(() => {
+      navigation.navigate('Alarm');
+    });
+
+    return () => {
+      foregroundSubscription.remove();
+      backgroundSubscription.remove();
+    };
+  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.safeArea}>

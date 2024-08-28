@@ -15,6 +15,7 @@ import Alarm from "../components/alarmComponent";
 import Coin from "../screens/CoinPage/coinPage";
 import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const CalendarStack = createNativeStackNavigator();
@@ -111,6 +112,7 @@ export default function AppNavigator() {
     };
   }, []);
 
+  
   
 
   return (
