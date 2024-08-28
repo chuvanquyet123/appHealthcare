@@ -62,7 +62,7 @@ export default function ChatPage() {
   const handleDataUser = ({ item }) => (
     <TouchableOpacity style={styles.chatView}>
       <Image
-        style={{ width: 70, height: 70, borderRadius: 50 }}
+        style={{ width: 60, height: 60, borderRadius: 50 }}
         src={item.imageUser}
       />
       <View
@@ -105,7 +105,7 @@ export default function ChatPage() {
         />
       </View>
       <FlatList
-        style={{ width: "100%", height: "100%", marginTop: 20 }}
+        style={{ width: "100%", height: "100%", marginTop: 10 }}
         horizontal={false}
         data={dataChat}
         renderItem={handleDataUser}
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    borderColor: "rgba(158, 150, 200, .3)",
+    borderColor: "rgba(255, 255, 255, 0.3)",
     borderWidth: 2,
     width: "95%",
     paddingLeft: 10,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     width: "100%",
-    height: 100,
+    height: 80,
     //backgroundColor: "#727272",
     alignItems: "center",
     padding: 20,
