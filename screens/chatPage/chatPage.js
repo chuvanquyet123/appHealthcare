@@ -84,48 +84,54 @@ export default function ChatPage() {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Feather name="menu" size={30} color={"#ffffff"} />
+          <Feather name="menu" size={27} color={"#ffffff"} />
         </TouchableOpacity>
         <Text style={{ fontWeight: "bold", fontSize: 18, color: "white" }}>
-          Trò Chuyện
+          Đoạn Chat
         </Text>
         <TouchableOpacity>
-          <Feather name="edit" size={30} color={"#ffffff"} />
+          <Feather name="edit" size={27} color={"#ffffff"} />
         </TouchableOpacity>
       </View>
-      <View style={styles.inputContainer}>
-        <Feather name="search" size={24} color="#a5a4a4" />
-        <TextInput
-          style={styles.input}
-          placeholder="Tìm Kiếm"
-          placeholderTextColor={"#a5a4a4"}
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#f0f0f0",
+          alignItems: "center",
+        }}
+      >
+        <View style={styles.inputContainer}>
+          <Feather name="search" size={24} color="#a5a4a4" />
+          <TextInput
+            style={styles.input}
+            placeholder="Tìm Kiếm"
+            placeholderTextColor={"#a5a4a4"}
+          />
+        </View>
+        <FlatList
+          style={{ width: "100%", height: "100%", marginTop: 10 }}
+          horizontal={false}
+          data={dataChat}
+          renderItem={handleDataUser}
+          keyExtractor={(item) => item.id}
         />
       </View>
-      <FlatList
-        style={{ width: "100%", height: "100%", marginTop: 10 }}
-        horizontal={false}
-        data={dataChat}
-        renderItem={handleDataUser}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#f0f0f0",
-    alignItems: "center",
+    flex: 1,
+    backgroundColor: "#1b5f9b",
   },
   header: {
     flexDirection: "row",
-    height: "13.2%",
+    marginTop: 20,
     width: "100%",
     backgroundColor: "#1b5f9b",
     alignItems: "flex-end",

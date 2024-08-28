@@ -15,7 +15,6 @@ import Alarm from "../components/alarmComponent";
 import Coin from "../screens/CoinPage/coinPage";
 import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
 
-
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const CalendarStack = createNativeStackNavigator();
@@ -53,7 +52,7 @@ function MainTabs() {
         }}
       />
       <Tab.Screen
-        name="Trò Chuyện"
+        name="Đoạn Chat"
         component={ChatPage}
         options={{
           tabBarIcon: ({ color }) => (
@@ -111,9 +110,6 @@ export default function AppNavigator() {
       Notifications.removeNotificationSubscription(responseListener);
     };
   }, []);
-
-  
-  
 
   return (
     <NavigationContainer>
