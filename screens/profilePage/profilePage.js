@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, SafeAreaView } from 'react-native';
 import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProfilePage() {
   const data = [
-    { key: 'Quản lý xu', icon: <FontAwesome5 name="coins" size={24} color="#f45d22" /> },
+    { key: 'Quản lý xu',screen: 'Coin', icon: <FontAwesome5 name="coins" size={24} color="#f45d22" /> },
     { key: 'Hồ sơ người thân', icon: <MaterialIcons name="family-restroom" size={24} color="#3c89f5" /> },
     { key: 'Nhắc nhở uống thuốc', icon: <MaterialIcons name="medication" size={24} color="#ff4d4f" /> },
     { key: 'Tạo nhắc nhở', icon: <Feather name="bell" size={24} color="#4caf50" /> },
@@ -12,12 +13,16 @@ export default function ProfilePage() {
     { key: 'Các thiết bị đã đăng nhập', icon: <Feather name="smartphone" size={24} color="#3c89f5" /> },
     { key: 'Tùy chỉnh theo dõi sức khỏe', icon: <Feather name="activity" size={24} color="#ff5722" /> },
     { key: 'Chính sách của công ty', icon: <MaterialIcons name="policy" size={24} color="#ff9800" /> },
-    { key: 'Giới thiệu bạn bè', icon: <FontAwesome5 name="user-friends" size={24} color="#ff1744" /> },
+    { key: 'Giới thiệu bạn bè',screen: 'ReferFriends', icon: <FontAwesome5 name="user-friends" size={24} color="#ff1744" /> },
     { key: 'Về chúng tôi', icon: <Feather name="info" size={24} color="#009688" /> },
   ];
+  const navigation = useNavigation();
+  const handlePress = (screen) => {
+    navigation.navigate(screen);
+  };
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={() => handlePress(item.screen)}>
       {item.icon}
       <Text style={styles.text}>{item.key}</Text>
     </TouchableOpacity>
