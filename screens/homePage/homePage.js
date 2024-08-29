@@ -18,6 +18,7 @@ import {
   MaterialIcons,
   FontAwesome5,
   Octicons,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
 export default function HomePage() {
@@ -69,7 +70,7 @@ export default function HomePage() {
     {
       id: 1,
       buttonName: "Đặt Khám",
-      icon: <FontAwesome name="calendar-plus-o" size={30} color={"#125B9A"} />,
+      icon: <FontAwesome name="calendar-plus-o" size={30} color={"#3795BD"} />,
     },
     {
       id: 2,
@@ -78,19 +79,19 @@ export default function HomePage() {
         <MaterialIcons
           name="screen-search-desktop"
           size={30}
-          color={"#125B9A"}
+          color={"#3795BD"}
         />
       ),
     },
     {
       id: 3,
       buttonName: "Thứ Tự",
-      icon: <FontAwesome5 name="hospital-user" size={30} color={"#125B9A"} />,
+      icon: <FontAwesome5 name="hospital-user" size={30} color={"#3795BD"} />,
     },
     {
       id: 4,
       buttonName: "Quy Trình",
-      icon: <Octicons name="workflow" size={30} color={"#125B9A"} />,
+      icon: <Octicons name="workflow" size={30} color={"#3795BD"} />,
     },
   ];
 
@@ -147,12 +148,16 @@ export default function HomePage() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <FontAwesome name="heartbeat" size={45} color={"#F05A7E"} />
+        <MaterialCommunityIcons
+          name="heart-multiple-outline"
+          size={45}
+          color={"#F9DBBA"}
+        />
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Bạn đang tìm gì?"
-            placeholderTextColor={"#a5a4a4"}
+            placeholderTextColor={"#cac8c8"}
           />
           <Ionicons
             name="mic"
@@ -189,7 +194,7 @@ export default function HomePage() {
             <Text
               style={{
                 fontSize: 16,
-                color: "#307ec2",
+                color: "#299c93",
                 textDecorationLine: "underline",
               }}
             >
@@ -222,7 +227,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     height: "13.2%",
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
     paddingBottom: 10,
   },
   inputContainer: {
@@ -263,7 +268,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 9,
     shadowOpacity: 0.5,
-    shadowColor: "#0c66af",
+    shadowColor: "#4a5540a6",
     shadowRadius: 4,
   },
   newsView: {

@@ -44,7 +44,7 @@ export default function ReferFriends() {
         contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 80 }} // paddingBottom để tránh dính vào bottom tab
         showsVerticalScrollIndicator={false}
       >
-        <View style={{ flexDirection: "column", width: "100%", padding: 15 }}>
+        <View style={{ flexDirection: "column", width: "100%", padding: 10 }}>
           <Text
             style={{
               textAlign: "center",
@@ -60,7 +60,7 @@ export default function ReferFriends() {
             quả mọi lúc mọi nơi ngay trên điện thoại
           </Text>
         </View>
-        <View style={{ marginTop: 30, width: "100%", height: "20%" }}>
+        <View style={{ marginTop: 30, width: "100%", height: "15%" }}>
           <Text style={{ fontWeight: "bold" }}>Gửi mã giới thiệu của bạn</Text>
           <View
             style={{
@@ -76,7 +76,7 @@ export default function ReferFriends() {
             <TouchableOpacity
               style={{
                 width: "35%",
-                height: "50%",
+                height: "70%",
                 backgroundColor: "#3183c7",
                 justifyContent: "center",
                 alignItems: "center",
@@ -129,10 +129,12 @@ export default function ReferFriends() {
             }}
           >
             <Image
-              style={{ width: "90%", height: "80%" }}
+              style={{ width: "80%", height: "85%" }}
               source={require("../../assets/img/content/info.jpg")}
             />
-            <Text style={{ textDecorationLine: "underline" }}>Phóng to</Text>
+            <TouchableOpacity>
+              <Text style={{ textDecorationLine: "underline" }}>Phóng to</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.itemRefer}>
@@ -175,10 +177,12 @@ export default function ReferFriends() {
             }}
           >
             <Image
-              style={{ width: "90%", height: "80%" }}
+              style={{ width: "80%", height: "85%" }}
               source={require("../../assets/img/content/info.jpg")}
             />
-            <Text style={{ textDecorationLine: "underline" }}>Phóng to</Text>
+            <TouchableOpacity>
+              <Text style={{ textDecorationLine: "underline" }}>Phóng to</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -202,12 +206,13 @@ const styles = StyleSheet.create({
   },
   referList: {
     flex: 1,
+    height: "100%",
     backgroundColor: "#f0f0f0",
   },
   itemRefer: {
     flexDirection: "row",
     width: "100%",
-    height: "40%",
+    height: "35%",
     padding: 10,
     marginBottom: 20,
   },

@@ -18,11 +18,11 @@ export default function LogIn() {
   const navigation = useNavigation();
   const handleLogin = () => {
     navigation.navigate("MainTabs");
-    /*if (username === "abc@gmail.com" && password === "abcabcabc") {
-      navigation.navigate("MainTabs");
-    } else {
-      alert("Sai tài khoản hoặc mật khẩu!");
-    }*/
+    // if (username === "abc@gmail.com" && password === "abcabcabc") {
+    //   navigation.navigate("MainTabs");
+    // } else {
+    //   alert("Sai tài khoản hoặc mật khẩu!");
+    // }
   };
   return (
     <View style={styles.container}>
@@ -56,15 +56,15 @@ export default function LogIn() {
             justifyContent: "center",
           }}
         >
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+            <Text style={styles.text}>Đăng Nhập</Text>
+          </TouchableOpacity>
           <TouchableOpacity>
             <MaterialCommunityIcons
-              name="face-recognition"
+              name="fingerprint"
               size={45}
               color={"#616161"}
             />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.text}>Đăng Nhập</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={{ height: 50, alignItems: "center" }}>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "#096aac",
     width: "80%",
-    marginLeft: 10,
+    marginRight: 10,
   },
   text: {
     fontSize: 16,

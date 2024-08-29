@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { Audio } from 'expo-av';
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { Audio } from "expo-av";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Alarm() {
@@ -12,7 +12,7 @@ export default function Alarm() {
 
     const playSound = async () => {
       const { sound } = await Audio.Sound.createAsync(
-        require('../assets/sounds/default.mp3'),
+        require("../assets/sounds/default.mp3"),
         { isLooping: true }
       );
       soundObject = sound;
@@ -37,7 +37,7 @@ export default function Alarm() {
       await sound.unloadAsync();
       setSound(null);
     }
-    navigation.navigate('CalendarPage');
+    navigation.navigate("CalendarPage");
   };
 
   return (
@@ -45,8 +45,14 @@ export default function Alarm() {
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={styles.modalText}>Sắp đến giờ uống thuốc</Text>
-          <Image source={require('../assets/img/thuoc.png')} style={styles.image} />
-          <TouchableOpacity onPress={handleAcknowledge} style={styles.modalButton}>
+          <Image
+            source={require("../assets/img/thuoc.png")}
+            style={styles.image}
+          />
+          <TouchableOpacity
+            onPress={handleAcknowledge}
+            style={styles.modalButton}
+          >
             <Text style={styles.modalButtonText}>Tôi hiểu rồi</Text>
           </TouchableOpacity>
         </View>
@@ -58,22 +64,22 @@ export default function Alarm() {
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(253, 253, 253, 1)",
   },
   modalContent: {
     width: 300,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   modalText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
   image: {
     width: 100,
@@ -81,18 +87,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   modalButton: {
-    backgroundColor: '#007BFF',
+    backgroundColor: "#007BFF",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
   },
   modalButtonText: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 20,
+    shadowOpacity: 0.5,
+    shadowColor: "#a8a5a5b4",
   },
 });
