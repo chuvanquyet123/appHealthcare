@@ -14,6 +14,7 @@ import Repeat from "../components/repeatComponent";
 import Alarm from "../components/alarmComponent";
 import Coin from "../screens/CoinPage/coinPage";
 import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
+import ProfileDetail from "../components/profileDetailComponent";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,6 +36,7 @@ function ProfileScreen() {
       <CalendarStack.Screen name="Profile" component={ProfilePage} />
       <CalendarStack.Screen name="Coin" component={Coin} />
       <CalendarStack.Screen name="ReferFriends" component={ReferFriends} />
+      <CalendarStack.Screen name="ProfileDetail" component={ProfileDetail} />
     </CalendarStack.Navigator>
   );
 }
