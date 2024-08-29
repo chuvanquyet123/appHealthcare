@@ -27,13 +27,17 @@ export default function ReminderComponent() {
 
   const dayNames = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
-  // Chuyển tới Reminder screen và truyền dữ liệu ngày tháng năm
-  navigation.navigate("Reminder", {
-    year: parseInt(year, 10),
-    month: parseInt(month, 10),
-    day: parseInt(day, 10),
-  });
-
+  const navigation = useNavigation();
+    const handleClick = () => {
+        const dateToSend = selectedDate || new Date().toISOString().split('T')[0]; // Lấy ngày hiện tại nếu không có ngày được chọn
+        const [year, month, day] = dateToSend.split('-');
+        // Chuyển tới Reminder screen và truyền dữ liệu ngày tháng năm
+        navigation.navigate("Reminder", {
+            year: parseInt(year, 10),
+            month: parseInt(month, 10),
+            day: parseInt(day, 10),
+        });
+    };
   const handleTimeClick = (time) => {
     setSelectedTime(time === selectedTime ? null : time); // Toggle visibility
   };
