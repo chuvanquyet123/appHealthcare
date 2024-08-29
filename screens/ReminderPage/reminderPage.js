@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   buttonContinute: {
-    backgroundColor: "#125B9A",
+    backgroundColor: "#3795BD",
     width: 120,
     alignItems: "center",
     marginLeft: 20,

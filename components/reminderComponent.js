@@ -28,16 +28,16 @@ export default function ReminderComponent() {
   const dayNames = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
   const navigation = useNavigation();
-    const handleClick = () => {
-        const dateToSend = selectedDate || new Date().toISOString().split('T')[0]; // Lấy ngày hiện tại nếu không có ngày được chọn
-        const [year, month, day] = dateToSend.split('-');
-        // Chuyển tới Reminder screen và truyền dữ liệu ngày tháng năm
-        navigation.navigate("Reminder", {
-            year: parseInt(year, 10),
-            month: parseInt(month, 10),
-            day: parseInt(day, 10),
-        });
-    };
+  const handleClick = () => {
+    const dateToSend = selectedDate || new Date().toISOString().split("T")[0]; // Lấy ngày hiện tại nếu không có ngày được chọn
+    const [year, month, day] = dateToSend.split("-");
+    // Chuyển tới Reminder screen và truyền dữ liệu ngày tháng năm
+    navigation.navigate("Reminder", {
+      year: parseInt(year, 10),
+      month: parseInt(month, 10),
+      day: parseInt(day, 10),
+    });
+  };
   const handleTimeClick = (time) => {
     setSelectedTime(time === selectedTime ? null : time); // Toggle visibility
   };
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#007BFF",
+    color: "#3795BD",
     textAlign: "center",
     paddingVertical: 10,
   },
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     right: 10,
-    backgroundColor: "#007BFF",
+    backgroundColor: "#3795BD",
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 20,
