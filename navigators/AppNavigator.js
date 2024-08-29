@@ -15,6 +15,7 @@ import Alarm from "../components/alarmComponent";
 import Coin from "../screens/CoinPage/coinPage";
 import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
 import ProfileDetail from "../components/profileDetailComponent";
+import NotificationPage from "../screens/NotificationPage/notificationPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,6 +60,15 @@ function MainTabs() {
         options={{
           tabBarIcon: ({ color }) => (
             <Entypo name="chat" size={28} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Thông báo"
+        component={NotificationPage}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Entypo name="bell" size={28} color={color} />
           ),
         }}
       />
