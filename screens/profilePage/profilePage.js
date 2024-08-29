@@ -60,6 +60,10 @@ export default function ProfilePage() {
     navigation.navigate(screen);
   };
 
+  const handlePress1 = () => {
+    navigation.navigate('ProfileDetail');
+  };
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
@@ -71,7 +75,7 @@ export default function ProfilePage() {
   );
 
   const renderHeader = () => (
-    <View style={styles.profile}>
+    <TouchableOpacity onPress={handlePress1} style={styles.profile}>
       <View style={styles.avatar}></View>
       <View style={styles.profileInfo}>
         <Text style={styles.name}>Nguyễn Đình Kiên</Text>
@@ -80,7 +84,7 @@ export default function ProfilePage() {
       <TouchableOpacity>
         <Feather name="edit" size={24} color="black" />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
