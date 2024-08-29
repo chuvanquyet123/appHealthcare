@@ -70,7 +70,7 @@ export default function CalendarPage() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#125B9A",
+    backgroundColor: "#3795BD",
   },
   tabContainer: {
     flexDirection: "row",
