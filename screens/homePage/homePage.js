@@ -148,10 +148,9 @@ export default function HomePage() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <MaterialCommunityIcons
-          name="heart-multiple-outline"
-          size={45}
-          color={"#F9DBBA"}
+        <Image
+          style={{ width: 50, height: 50, top: 5, tintColor: "#375acf" }}
+          source={require("../../assets/img/logo/logo.png")}
         />
         <View style={styles.inputContainer}>
           <TextInput
