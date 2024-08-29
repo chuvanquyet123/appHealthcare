@@ -39,7 +39,7 @@ export default function NotificationPage() {
       nameUser: "Lời nhắc",
       messageContent: "Bạn đã quên uống thuốc",
       time: "3 giờ",
-    }
+    },
   ];
 
   const handleDataUser = ({ item }) => (
@@ -89,6 +89,9 @@ export default function NotificationPage() {
             placeholderTextColor={"#a5a4a4"}
           />
         </View>
+        <View style={{ width: "100%", marginTop: 10, padding: 10 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hôm Nay</Text>
+        </View>
         <FlatList
           style={{ width: "100%", height: "100%", marginTop: 10 }}
           horizontal={false}
@@ -96,6 +99,9 @@ export default function NotificationPage() {
           renderItem={handleDataUser}
           keyExtractor={(item) => item.id}
         />
+        <TouchableOpacity style={{ width: "30%", height: 50 }}>
+          <Text>Xem Thêm Thông Báo Trước Đó</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

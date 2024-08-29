@@ -77,7 +77,7 @@ export default function ReferFriends() {
               style={{
                 width: "35%",
                 height: "70%",
-                backgroundColor: "#3183c7",
+                backgroundColor: "#3795BD",
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: 5,
@@ -97,7 +97,7 @@ export default function ReferFriends() {
               justifyContent: "space-between",
             }}
           >
-            <Text style={{ color: "#3183c7", fontWeight: "800" }}>
+            <Text style={{ color: "#3795BD", fontWeight: "800" }}>
               Tải ứng dụng Bệnh nhân
             </Text>
             <Text>
@@ -111,7 +111,7 @@ export default function ReferFriends() {
               style={{
                 width: "90%",
                 height: 40,
-                backgroundColor: "#3183c7",
+                backgroundColor: "#3795BD",
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: 5,
@@ -145,7 +145,7 @@ export default function ReferFriends() {
               justifyContent: "space-between",
             }}
           >
-            <Text style={{ color: "#3183c7", fontWeight: "800" }}>
+            <Text style={{ color: "#3795BD", fontWeight: "800" }}>
               Tải ứng dụng Bác sĩ
             </Text>
             <Text>
@@ -159,7 +159,7 @@ export default function ReferFriends() {
               style={{
                 width: "90%",
                 height: 40,
-                backgroundColor: "#3183c7",
+                backgroundColor: "#3795BD",
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: 5,
@@ -192,13 +192,13 @@ export default function ReferFriends() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
   },
   header: {
     flexDirection: "row",
     marginTop: 20,
     width: "100%",
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
     alignItems: "flex-end",
     justifyContent: "space-between",
     paddingBottom: 13,

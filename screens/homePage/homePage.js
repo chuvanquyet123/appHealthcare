@@ -194,7 +194,7 @@ export default function HomePage() {
             <Text
               style={{
                 fontSize: 16,
-                color: "#299c93",
+                color: "#3795BD",
                 textDecorationLine: "underline",
               }}
             >

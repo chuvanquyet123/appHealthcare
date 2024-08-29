@@ -61,7 +61,7 @@ export default function ProfilePage() {
   };
 
   const handlePress1 = () => {
-    navigation.navigate('ProfileDetail');
+    navigation.navigate("ProfileDetail");
   };
 
   const renderItem = ({ item }) => (
@@ -108,11 +108,11 @@ export default function ProfilePage() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#125B9A",
+    backgroundColor: "#3795BD",
   },
   headerContainer: {
     paddingHorizontal: 16,
-    backgroundColor: "#125B9A",
+    backgroundColor: "#3795BD",
     elevation: 2,
   },
   container: {

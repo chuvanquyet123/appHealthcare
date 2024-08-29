@@ -119,8 +119,8 @@ export default function Coin() {
               width: "20%",
             }}
           >
-            <MaterialCommunityIcons name="filter" size={28} color={"#1b428b"} />
-            <Text style={{ fontWeight: "bold", color: "#2366e0" }}>Bộ Lọc</Text>
+            <MaterialCommunityIcons name="filter" size={28} color={"#3795BD"} />
+            <Text style={{ fontWeight: "bold", color: "#3795BD" }}>Bộ Lọc</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   button: {
     width: "35%",
     height: "70%",
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
