@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     height: "13.2%",
-    backgroundColor: "#E2DAD6",
+    backgroundColor: "#C9DABF",
     paddingBottom: 10,
   },
   inputContainer: {
