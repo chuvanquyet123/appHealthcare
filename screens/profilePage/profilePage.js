@@ -7,7 +7,12 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-import { Feather, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+import {
+  Feather,
+  FontAwesome5,
+  MaterialIcons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 export default function ProfilePage() {
@@ -16,6 +21,12 @@ export default function ProfilePage() {
       key: "Quản lý xu",
       screen: "Coin",
       icon: <FontAwesome5 name="coins" size={24} color="#f45d22" />,
+    },
+    {
+      key: "Quét",
+      icon: (
+        <MaterialCommunityIcons name="line-scan" size={24} color="#000000" />
+      ),
     },
     {
       key: "Hồ sơ người thân",

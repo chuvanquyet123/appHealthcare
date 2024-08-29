@@ -100,7 +100,7 @@ export default function ChatPage() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: "#f0f0f0",
+          backgroundColor: "#ffffff",
           alignItems: "center",
         }}
       >

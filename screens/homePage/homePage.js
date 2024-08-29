@@ -69,7 +69,7 @@ export default function HomePage() {
   const buttonData = [
     {
       id: 1,
-      buttonName: "Đặt Khám",
+      buttonName: "Lịch Khám",
       icon: <FontAwesome name="calendar-plus-o" size={30} color={"#3795BD"} />,
     },
     {
@@ -149,7 +149,7 @@ export default function HomePage() {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Image
-          style={{ width: 50, height: 50, top: 5, tintColor: "#3795BD" }}
+          style={{ width: 50, height: 50, top: 5, tintColor: "#ffffff" }}
           source={require("../../assets/img/logo/logo.png")}
         />
         <View style={styles.inputContainer}>
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     height: "13.2%",
-    backgroundColor: "#C9DABF",
+    backgroundColor: "#3795BD",
     paddingBottom: 10,
   },
   inputContainer: {

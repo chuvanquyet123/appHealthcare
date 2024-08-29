@@ -152,6 +152,8 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: 16,
     marginVertical: 5,
+    fontWeight: "bold",
+    textDecorationLine: "underline",
   },
   additionalInfo: {
     marginTop: 10,
