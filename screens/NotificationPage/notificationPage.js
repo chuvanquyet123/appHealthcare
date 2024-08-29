@@ -19,21 +19,13 @@ export default function NotificationPage() {
     {
       id: 1,
       imageUser:
-        "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/401592491_3659917990903986_4375874815423449447_n.jpg?stp=cp6_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fJMq2JdDHCUQ7kNvgHiun7s&_nc_ht=scontent.fhan5-2.fna&oh=00_AYA0tu9ROYTrsmCfuVBIhiWgQBedguMGEZAshhYXDFeFsA&oe=66D373AF",
-      nameUser: "Tin mới",
-      messageContent: "Bác sĩ hải vừa đăng 1 bài viết mới.",
-      time: "1 giờ",
-    },
-    {
-      id: 2,
-      imageUser:
         "https://media.istockphoto.com/id/1944704622/photo/successful-doctor-woman-standing-outside-at-front-of-medical-clinic-looking-at-camera.webp?b=1&s=612x612&w=0&k=20&c=GCN2H0bGVRd1gQgtLZtxTKGR2Hw9UyrMPj42rDRHE3Q=",
       nameUser: "Thông báo",
-      messageContent: "Bác sĩ nhi đã chia sẻ 1 bài viết.",
+      messageContent: "Bạn có lịch hẹn khám khoa ngoại vào ngày mai.",
       time: "2 giờ",
     },
     {
-      id: 3,
+      id: 2,
       imageUser:
         "https://media.istockphoto.com/id/1494324933/photo/portrait-of-asian-chinese-mixed-race-senior-mature-man-doctor-in-collared-business-shirt.webp?b=1&s=612x612&w=0&k=20&c=CY6F5ldzz3xcC5KEbgx_r1ltOUMLaqzCsNnwtesf_28=",
       nameUser: "Lời nhắc",
