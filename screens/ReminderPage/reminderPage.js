@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,8 +7,6 @@ import {
   StyleSheet,
   SafeAreaView,
   TextInput,
-  Modal,
-  Image,
   Alert,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
