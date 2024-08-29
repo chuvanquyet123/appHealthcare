@@ -29,6 +29,10 @@ export default function ProfilePage() {
       ),
     },
     {
+      key: "Hồ Sơ Bệnh Án",
+      icon: <FontAwesome5 name="folder-open" size={24} color="#f5c832" />,
+    },
+    {
       key: "Hồ sơ người thân",
       icon: <MaterialIcons name="family-restroom" size={24} color="#3c89f5" />,
     },
