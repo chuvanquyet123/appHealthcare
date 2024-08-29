@@ -64,20 +64,20 @@ function MainTabs() {
         }}
       />
       <Tab.Screen
-        name="Thông báo"
-        component={NotificationPage}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Entypo name="bell" size={28} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Lịch Uống Thuốc"
         component={CalendarStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="calendar" size={28} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Thông báo"
+        component={NotificationPage}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Entypo name="bell" size={28} color={color} />
           ),
         }}
       />
