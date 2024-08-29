@@ -104,13 +104,13 @@ export default function NotificationPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
   },
   header: {
     flexDirection: "row",
     marginTop: 20,
     width: "100%",
-    backgroundColor: "#1b5f9b",
+    backgroundColor: "#3795BD",
     alignItems: "flex-end",
     justifyContent: "center",
     paddingBottom: 13,
