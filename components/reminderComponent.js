@@ -6,12 +6,13 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function ReminderComponent() {
     const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
 
     const monthNames = [
-        'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 
+        'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
         'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
     ];
-    
+
     const dayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
 
     const navigation = useNavigation();
@@ -25,25 +26,28 @@ export default function ReminderComponent() {
             month: parseInt(month, 10),
             day: parseInt(day, 10),
         });
-      };
+    };
 
+    const handleTimeClick = (time) => {
+        setSelectedTime(time === selectedTime ? null : time);  // Toggle visibility
+    };
     return (
         <View style={styles.container}>
             <Calendar
                 style={styles.calendar}
                 onDayPress={(day) => {
-                  setSelectedDate(day.dateString);
+                    setSelectedDate(day.dateString);
                 }}
                 markedDates={{
-                  [selectedDate]: {
-                    selected: true,
-                    selectedColor: '#007BFF',
-                    selectedTextColor: '#ffffff',
-                  },
+                    [selectedDate]: {
+                        selected: true,
+                        selectedColor: '#007BFF',
+                        selectedTextColor: '#ffffff',
+                    },
                 }}
                 theme={{
-                  arrowColor: '#007BFF',
-                  todayTextColor: '#007BFF',
+                    arrowColor: '#007BFF',
+                    todayTextColor: '#007BFF',
                 }}
                 renderHeader={(date) => {
                     const month = date.toLocaleString('default', { month: 'long' });
@@ -59,10 +63,28 @@ export default function ReminderComponent() {
             <View style={styles.reminderTimes}>
                 <Text style={styles.reminderText}>Lịch uống thuốc hôm nay:</Text>
                 {['7:00', '13:00', '20:00'].map((time, index) => (
-                    <Text key={index} style={styles.timeText}>{`> ${time}`}</Text>
+                    <View key={index}>
+                        <TouchableOpacity onPress={() => handleTimeClick(time)}>
+                            <Text style={styles.timeText}>{`> ${time}`}</Text>
+                        </TouchableOpacity>
+
+                        {selectedTime === time && (
+                            <View style={styles.additionalInfo}>
+                                <Text style={styles.additionalText}>Bạn đã uống thuốc chưa?</Text>
+                                <View style={styles.buttonsContainer}>
+                                    <TouchableOpacity style={styles.buttonGreen}>
+                                        <Text style={styles.buttonText}>Đã uống</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.buttonRed}>
+                                        <Text style={styles.buttonText}>Chưa uống</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        )}
+                    </View>
                 ))}
             </View>
-            
+
             <TouchableOpacity style={styles.manageButton} onPress={handleClick}>
                 <Ionicons name="alarm-outline" size={24} color="#FFF" />
                 <Text style={styles.manageButtonText}>Quản lý nhắc nhở</Text>
@@ -101,7 +123,7 @@ const styles = StyleSheet.create({
         color: '#707070',
     },
     currentDayText: {
-        textAlign:'center',
+        textAlign: 'center',
         fontSize: 16,
         fontWeight: '600',
         marginVertical: 10,
@@ -117,12 +139,42 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginVertical: 5,
     },
+    additionalInfo: {
+        marginTop: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 10,
+        backgroundColor: '#f9f9f9',
+    },
+    additionalText: {
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    buttonGreen: {
+        backgroundColor: '#5cb85c',
+        padding: 10,
+        borderRadius: 5,
+    },
+    buttonRed: {
+        backgroundColor: '#d9534f',
+        padding: 10,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+    },
     manageButton: {
         position: 'absolute',
         bottom: 10,
         right: 10,
         backgroundColor: '#007BFF',
-        paddingVertical: 5, 
+        paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 20,
         alignItems: 'center',
@@ -131,8 +183,8 @@ const styles = StyleSheet.create({
     },
     manageButtonText: {
         color: '#FFF',
-        fontSize: 24, 
+        fontSize: 24,
         marginLeft: 5,
-        fontWeight:'600'
+        fontWeight: '600'
     },
 });
