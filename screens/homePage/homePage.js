@@ -149,7 +149,7 @@ export default function HomePage() {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Image
-          style={{ width: 50, height: 50, top: 5, tintColor: "#375acf" }}
+          style={{ width: 50, height: 50, top: 5, tintColor: "#3795BD" }}
           source={require("../../assets/img/logo/logo.png")}
         />
         <View style={styles.inputContainer}>
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     height: "13.2%",
-    backgroundColor: "#3795BD",
+    backgroundColor: "#E2DAD6",
     paddingBottom: 10,
   },
   inputContainer: {
