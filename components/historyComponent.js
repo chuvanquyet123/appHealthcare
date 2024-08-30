@@ -37,7 +37,7 @@ export default function HistoryComponent() {
       style={{
         width: "100%",
         height: 150,
-        //backgroundColor: "#5e5d5d62",
+        backgroundColor: "#ffffffff",
         flexDirection: "row",
         padding: 10,
         marginBottom: 10,
