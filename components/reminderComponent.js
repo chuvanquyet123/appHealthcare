@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   timeText: {
-    fontSize: 16,
+    fontSize: 13,
     marginVertical: 5,
     fontWeight: "bold",
     textDecorationLine: "underline",

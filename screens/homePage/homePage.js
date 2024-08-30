@@ -25,12 +25,13 @@ export default function HomePage() {
   const data = [
     {
       id: 1,
-      title: "VITAMIN B12 VÀ UNG THƯ",
+      title:
+        "Viêm gan B kiêng ăn gì? 7 nhóm thực phẩm cần kiêng khi bị viêm gan B",
       content:
-        "Vitamin B12 là một loại vitamin tan trong nước mà cơ thể cần với lượng nhỏ để duy trì hoạt động. Tuy nhiên có nhiều thông tin liên quan giữa ung thư và vitamin B12 khiến cho nhiều người còn băn khoăn về việc sử dụng vitamin này.",
+        "Theo thống kê từ nhiều nhà khoa học hàng đầu, tính đến thời điểm hiện tại, tỷ lệ mắc bệnh về gan ở Việt Nam chiếm đến 10 – 20% dân số. Trong số đó, trường hợp phổ biến nhất là viêm gan B, căn bệnh phát sinh bởi một chủng virus cùng tên với dấu hiệu đặc trưng là sắc tố da hoặc tròng trắng mắt chuyển vàng rõ rệt",
       imageDT:
-        "https://benhvienk.vn/data/media/1601/images/301613023_1745507439143960_3302390759148731262_n.jpg",
-      categories: "Ung Bướu",
+        "https://cdn.hellobacsi.com/wp-content/uploads/2019/09/7-nhom-thuc-pham-can-kieng-khi-bi-viem-gan-b_359270072.jpg?w=750&q=75",
+      categories: "Dinh Dưỡng",
       date: "15/08/2024",
       view: 34767,
       shared: 100,
@@ -39,10 +40,12 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "ĂN MẶN LÀ THÓI QUEN GÂY HẠI CHO SỨC KHOẺ",
+      title:
+        "Lợi ích của sữa chua (yaourt) và cách ăn khoa học để có lợi nhất cho sức khỏe",
       content:
-        "Hiện nay, người Việt Nam đang ăn khoảng 12-15g muối/ngày, cao gấp 2-3 lần khuyến cáo của Tổ chức Y tế thế giới. Theo khuyến cáo của WHO, người trưởng thành khỏe mạnh nên ăn dưới 5g muối/ngày. Đối với trẻ nhỏ dưới 1 tuổi, chỉ nên ăn dưới 1g muối/ngày, trẻ từ 1-3 tuổi nên ăn 3g/ngày, trẻ > 7 tuổi thì ăn lượng muối như người trưởng thành. ",
-      imageDT: "https://benhvienk.vn/data/media/1601/images/mu%E1%BB%91i.jpg",
+        "Sữa chua (yaourt) là một món ăn vặt không những ngon, dễ ăn mà còn có nhiều tác dụng tuyệt vời đối với sức khỏe. Nhưng lợi ích tuyệt vời của yaourt ra sao và ăn thế nào để mang lại lợi ích nhất cho sức khỏe ",
+      imageDT:
+        "https://benhviendakhoahaian.vn/wp-content/uploads/2020/11/loi-ich-cua-sua-chua.png",
       categories: "Sống Khoẻ",
       date: "27/06/2024",
       view: 45347,
@@ -52,12 +55,13 @@ export default function HomePage() {
     },
     {
       id: 3,
-      title: "LÁ ĐU ĐỦ VÀ UNG THƯ",
+      title:
+        "Ăn táo đỏ có tác dụng gì? 8 lợi ích và lưu ý khi ăn ít người biết",
       content:
-        "Cây đu đủ rất phổ biến ở các nước vùng nhiệt đới. Toàn thân cây đu đủ đều có thể sử dụng được để làm thực phẩm hoặc thuốc, mỹ phẩm. Lá của đu đủ chứa nhiều vitamin tan trong chất béo (A, D, E và K); vitamin B và C; và các khoáng chất như sắt, natri và magiê.",
+        "Táo đỏ là táo gì? Táo đỏ, còn được biết đến với một tên gọi phổ biến là táo tàu. Ngoài ra, táo đỏ còn có nhiều tên gọi khác như: đại táo, can táo, hồng táo, nam táo, đường táo,…",
       imageDT:
-        "https://benhvienk.vn/data/media/1601/images/la-du-du-ok_yofu.jpg",
-      categories: "Ung Bướu",
+        "https://cdn.hellobacsi.com/wp-content/uploads/2022/10/tao-tau-2.jpg",
+      categories: "Dinh Dưỡng",
       date: "20/08/2024",
       view: 56127,
       shared: 130,

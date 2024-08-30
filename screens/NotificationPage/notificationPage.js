@@ -19,16 +19,16 @@ export default function NotificationPage() {
     {
       id: 1,
       imageUser:
-        "https://media.istockphoto.com/id/1944704622/photo/successful-doctor-woman-standing-outside-at-front-of-medical-clinic-looking-at-camera.webp?b=1&s=612x612&w=0&k=20&c=GCN2H0bGVRd1gQgtLZtxTKGR2Hw9UyrMPj42rDRHE3Q=",
-      nameUser: "Thông báo",
+        "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/457278646_490166013767325_3329867938515344392_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hy-LqJasi8wQ7kNvgE_O1Xy&_nc_ht=scontent.fhan5-2.fna&oh=00_AYB0f8iE9f6hyLRhIv-fHkWnzfYQt56yIK8tZKzC5EDuFw&oe=66D70D8E",
+      nameUser: "Thông báo hệ thống",
       messageContent: "Bạn có lịch hẹn khám khoa ngoại vào ngày mai.",
       time: "2 giờ",
     },
     {
       id: 2,
       imageUser:
-        "https://media.istockphoto.com/id/1494324933/photo/portrait-of-asian-chinese-mixed-race-senior-mature-man-doctor-in-collared-business-shirt.webp?b=1&s=612x612&w=0&k=20&c=CY6F5ldzz3xcC5KEbgx_r1ltOUMLaqzCsNnwtesf_28=",
-      nameUser: "Lời nhắc",
+        "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/457278646_490166013767325_3329867938515344392_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hy-LqJasi8wQ7kNvgE_O1Xy&_nc_ht=scontent.fhan5-2.fna&oh=00_AYB0f8iE9f6hyLRhIv-fHkWnzfYQt56yIK8tZKzC5EDuFw&oe=66D70D8E",
+      nameUser: "Lời nhắc từ hệ thống",
       messageContent: "Bạn đã quên uống thuốc",
       time: "3 giờ",
     },
