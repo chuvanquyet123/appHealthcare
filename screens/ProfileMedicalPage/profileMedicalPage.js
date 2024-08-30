@@ -1,18 +1,20 @@
-import React from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView,SafeAreaView } from 'react-native';
+import React from "react";
+import { View, Text, TextInput, StyleSheet, ScrollView } from "react-native";
 
 const ProfileMedical = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>MẪU HỒ SƠ BỆNH NGHỀ NGHIỆP</Text>
       <Text style={styles.subtitle}>
-        (Ban hành kèm theo Thông tư số 28/2016/TT-BYT ngày 30 tháng 6 năm 2016 của Bộ trưởng Bộ Y tế)
+        (Ban hành kèm theo Thông tư số 28/2016/TT-BYT ngày 30 tháng 6 năm 2016
+        của Bộ trưởng Bộ Y tế)
       </Text>
 
       <View style={styles.section}>
         <Text style={styles.label}>CƠ QUAN CHỦ QUẢN</Text>
-        <Text style={styles.labelRight}>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</Text>
+        <Text style={styles.labelRight}>
+          CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+        </Text>
       </View>
       <View style={styles.section}>
         <Text style={styles.label}>TÊN CƠ QUAN, ĐƠN VỊ</Text>
@@ -20,7 +22,9 @@ const ProfileMedical = () => {
       </View>
 
       <Text style={styles.formTitle}>HỒ SƠ BỆNH NGHỀ NGHIỆP</Text>
-      <Text style={styles.formNumber}>Hồ sơ số ____________________________</Text>
+      <Text style={styles.formNumber}>
+        Hồ sơ số ____________________________
+      </Text>
 
       {/** Form Fields **/}
       <View style={styles.field}>
@@ -52,7 +56,9 @@ const ProfileMedical = () => {
         <TextInput style={styles.input} />
       </View>
       <View style={styles.field}>
-        <Text style={styles.label}>Số hồ sơ khám sức khỏe phát hiện bệnh nghề nghiệp:</Text>
+        <Text style={styles.label}>
+          Số hồ sơ khám sức khỏe phát hiện bệnh nghề nghiệp:
+        </Text>
         <TextInput style={styles.input} />
       </View>
       <View style={styles.field}>
@@ -76,33 +82,28 @@ const ProfileMedical = () => {
 
       <Text style={styles.footer}>Năm ____________________________</Text>
     </ScrollView>
-    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#fff',
-  },
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#3795BD",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 12,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 16,
   },
   section: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 8,
   },
   label: {
@@ -110,17 +111,17 @@ const styles = StyleSheet.create({
   },
   labelRight: {
     fontSize: 14,
-    textAlign: 'right',
+    textAlign: "right",
   },
   formTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginVertical: 16,
   },
   formNumber: {
     fontSize: 14,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 16,
   },
   field: {
@@ -128,13 +129,13 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
-    borderColor: '#000',
+    borderColor: "#000",
     paddingVertical: 4,
     marginTop: 4,
   },
   footer: {
     fontSize: 14,
-    textAlign: 'right',
+    textAlign: "right",
     marginTop: 16,
   },
 });
