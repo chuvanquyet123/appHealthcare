@@ -32,12 +32,20 @@ export default function NotificationPage() {
       messageContent: "Bạn đã quên uống thuốc",
       time: "3 giờ",
     },
+    {
+      id: 3,
+      imageUser:
+        "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/457278646_490166013767325_3329867938515344392_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hy-LqJasi8wQ7kNvgE_O1Xy&_nc_ht=scontent.fhan5-2.fna&oh=00_AYB0f8iE9f6hyLRhIv-fHkWnzfYQt56yIK8tZKzC5EDuFw&oe=66D70D8E",
+      nameUser: "Thông báo từ hệ thống",
+      messageContent: "Bạn đã uống xong đơn thuốc đau dạ dày",
+      time: "6 giờ",
+    },
   ];
 
   const handleDataUser = ({ item }) => (
     <TouchableOpacity style={styles.chatView}>
       <Image
-        style={{ width: 60, height: 60, borderRadius: 50 }}
+        style={{ width: 70, height: 70, borderRadius: 50 }}
         src={item.imageUser}
       />
       <View

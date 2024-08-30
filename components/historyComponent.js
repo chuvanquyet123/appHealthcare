@@ -28,7 +28,7 @@ export default function HistoryComponent() {
       perday: "Mỗi ngày 2 liều, mỗi loại 1 viên( cho 1 liều), sáng và tối",
       medicine_name: "Stadovas, Kavasdin",
       status: "Trong quá trình",
-      color: "#a02147",
+      color: "#b1395d",
     },
   ];
 
