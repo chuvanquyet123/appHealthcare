@@ -16,6 +16,7 @@ import Coin from "../screens/CoinPage/coinPage";
 import ReferFriends from "../screens/ReferFriendsPage/referFriendsPage";
 import ProfileDetail from "../components/profileDetailComponent";
 import NotificationPage from "../screens/NotificationPage/notificationPage";
+import ProfileMedical from "../screens/ProfileMedicalPage/profileMedicalPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -38,6 +39,7 @@ function ProfileScreen() {
       <CalendarStack.Screen name="Coin" component={Coin} />
       <CalendarStack.Screen name="ReferFriends" component={ReferFriends} />
       <CalendarStack.Screen name="ProfileDetail" component={ProfileDetail} />
+      <CalendarStack.Screen name="ProfileMedical" component={ProfileMedical} />
     </CalendarStack.Navigator>
   );
 }

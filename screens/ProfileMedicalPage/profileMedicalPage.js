@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView,SafeAreaView } from 'react-native';
 
 const ProfileMedical = () => {
   return (
+    <SafeAreaView style={styles.safeArea}>
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>MẪU HỒ SƠ BỆNH NGHỀ NGHIỆP</Text>
       <Text style={styles.subtitle}>
@@ -75,6 +76,7 @@ const ProfileMedical = () => {
 
       <Text style={styles.footer}>Năm ____________________________</Text>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -82,6 +84,10 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#fff',
+  },
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#3795BD",
   },
   title: {
     fontSize: 18,
