@@ -92,11 +92,6 @@ export default function HomePage() {
       buttonName: "Thứ Tự",
       icon: <FontAwesome5 name="hospital-user" size={30} color={"#3795BD"} />,
     },
-    {
-      id: 4,
-      buttonName: "Quy Trình",
-      icon: <Octicons name="workflow" size={30} color={"#3795BD"} />,
-    },
   ];
 
   const renderOption = ({ item }) => (
@@ -172,7 +167,10 @@ export default function HomePage() {
       </View>
       <View style={styles.viewOption}>
         <FlatList
-          style={{ width: "100%", height: "100%" }}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
           horizontal={true}
           data={buttonData}
           renderItem={renderOption}
@@ -255,7 +253,8 @@ const styles = StyleSheet.create({
   },
 
   viewOption: {
-    width: "95%",
+    flexDirection: "row",
+    width: "70%",
     height: "15%",
     alignContent: "center",
     justifyContent: "center",
