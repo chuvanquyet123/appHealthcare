@@ -30,6 +30,7 @@ export default function ProfilePage() {
     },
     {
       key: "Hồ Sơ Bệnh Án",
+      screen: "ProfileMedical",
       icon: <FontAwesome5 name="folder-open" size={24} color="#f5c832" />,
     },
     {
