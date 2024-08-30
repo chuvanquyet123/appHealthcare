@@ -100,7 +100,7 @@ export default function ChatPage() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#eeececff",
           alignItems: "center",
         }}
       >
@@ -142,9 +142,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#ffffff",
     borderRadius: 10,
-    borderColor: "rgba(255, 255, 255, 0.3)",
+    borderColor: "rgba(255, 255, 255, 0.651)",
     borderWidth: 2,
     width: "95%",
     paddingLeft: 10,
